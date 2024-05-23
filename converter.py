@@ -1,3 +1,5 @@
+import sys
+
 def decimal_to_other_base(quotient, divisor):
     result = ''
     while quotient > 0:
@@ -29,3 +31,15 @@ def number_base_converter(initial_number, number_base, conversion_number_base):
     else:
         decimal_value = other_base_to_decimal(quotient, number_base)
         return decimal_to_other_base(decimal_value, divisor)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: python base_converter.py initial_number number_base conversion_number_base")
+        sys.exit(1)
+    
+    initial_number = sys.argv[1]
+    number_base = sys.argv[2]
+    conversion_number_base = sys.argv[3]
+
+    result = number_base_converter(initial_number, number_base, conversion_number_base)
+    print('Result:', result)
